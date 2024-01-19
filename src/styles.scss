@@ -34,6 +34,10 @@ body {
     height: 100%;
 }
 
+.pointer, .link {
+    cursor: pointer;
+}
+
 // flex
 .flex {
     display: flex;
@@ -45,6 +49,14 @@ body {
 
 .column {
     flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.start-start {
+    align-items: start;
 }
 
 .start-center {
