@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core';import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
+
+  roles: string[] = ['facilitator', 'candidate', 'admin']
   registerFormData: any = {
     firstName: '',
     lastName: '',
     email: '',
+    role: '',
     password: '',
     confirmPassword: '',
   }
@@ -22,7 +25,7 @@ export class SignUpComponent {
   onclick():void {
 
     // Checks if password is the same
-    if(this.registerFormData.password !== this,this.registerFormData.confirmPassword) {
+    if(this.registerFormData.password !== this.registerFormData.confirmPassword) {
       this.snackbar.open(`Password don't match`, 'Ok', {duration:3000})
       return
     }
@@ -57,5 +60,7 @@ export class SignUpComponent {
     // Send user to the login page
     this.router.navigate(['/sign-in']);
   }
+
+  
 
 }

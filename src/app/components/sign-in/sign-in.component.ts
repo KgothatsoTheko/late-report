@@ -31,6 +31,8 @@ export class SignInComponent {
           sessionStorage.setItem('user', JSON.stringify(foundUser));
           // Navigate the user to the dashboard
           this.router.navigate(['/home']);
+        } else {
+          this.snackbar.open(`Incorrect password`, 'Ok', { duration: 3000 });
         }
       } else {
         this.snackbar.open(`${this.loginFormData.email} is not found`, 'Ok', { duration: 3000 });

@@ -42,6 +42,19 @@
                 </mat-error>
             </mat-form-field>
 
+            <!-- Role -->
+            <mat-form-field class="full-width">
+                <mat-label>Select a Role</mat-label>
+                <mat-select [(ngModel)]="registerFormData.role" name="role" #role = "ngModel" required>
+                  <mat-option *ngFor="let role of roles" [value]="role">
+                    {{role | titlecase}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="role.invalid && role.errors && role.errors ['required']">
+                    Role is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+
             <!-- Confirm Pasword -->
             <mat-form-field class="full-width">
                 <mat-label>Confirm Password</mat-label>
